@@ -14,7 +14,7 @@ public class FizzBuzzP4 {
             System.out.println("Invalid number");
         }
 
-        for (int i = 0; i < n+1; i++)
+        for (int i = 1; i < n+1; i++)
         {
             int index = i;
             if(index > 1 && index%3==0 && index%5 != 0)
@@ -53,7 +53,7 @@ public class FizzBuzzP4 {
 
             System.out.println("Enter the maximum number for FizzBuzz or 'stop' to end program.");
             String str = scan.nextLine();
-            if(str.charAt(0) >= 57)
+            if(str.charAt(0) >= 57 || str.charAt(0) <= 48 )
             {
                 TF = false;
                 break;

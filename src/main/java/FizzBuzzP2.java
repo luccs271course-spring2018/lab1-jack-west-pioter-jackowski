@@ -12,7 +12,7 @@ public class FizzBuzzP2 {
             System.out.println("Invalid number");
         }
 
-        for (int i = 0; i < n+1; i++)
+        for (int i = 1; i < n+1; i++)
         {
             int index = i;
             if(index > 1 && index%3==0 && index%5 != 0)
@@ -53,7 +53,7 @@ public class FizzBuzzP2 {
             String str = scan.nextLine();
             //This if Statement checks the ascii decimal value to see if it is a number or a letter.
             //If it is any letter the program will end
-            if(str.charAt(0) >= 57)
+            if(str.charAt(0) >= 57 || str.charAt(0) <= 48)
             {
                 TF = false;
                 break;
