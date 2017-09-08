@@ -10,12 +10,16 @@ public class FizzBuzzP3 {
     {
         //Because I wanted to have a array to keep track of both ints and Strings, the object array seemed to be the
         //best option
-        Object fizzBuzz[] = new Object[n+1];
+
 
         if(n< 1)
         {
-            System.out.println("Invalid number");
+            Object blank[] = new Object[1];
+            blank[0] = "Invalid number";
+            return blank;
         }
+
+        Object fizzBuzz[] = new Object[n+1];
 
         for (int i = 1; i < fizzBuzz.length; i++)
         {
