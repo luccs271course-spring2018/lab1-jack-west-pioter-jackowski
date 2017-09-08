@@ -19,5 +19,6 @@ public class TestFizzBuzzP3 {
     @Test
     public void dummy() {
         assertNotNull(fixture);
-        assertArrayEquals("Invalid number");
+        fixture.FizzBuzz(-17);
+        assertArrayEquals(Object[] blank = );
 }
