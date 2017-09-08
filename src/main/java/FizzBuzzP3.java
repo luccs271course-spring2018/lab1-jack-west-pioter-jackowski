@@ -2,6 +2,7 @@
  * Created by jwest1 on 9/1/2017.
  */
 import java.lang.reflect.Array;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class FizzBuzzP3 {
@@ -12,38 +13,37 @@ public class FizzBuzzP3 {
         //best option
 
 
-        if(n< 1)
+        if(n<1)
         {
-            Object blank[] = new Object[1];
-            blank[0] = "Invalid number";
+            Object blank[] = {"Invalid number"};
             return blank;
         }
 
-        Object fizzBuzz[] = new Object[n+1];
+        Object fizzBuzz[] = new Object[n];
 
-        for (int i = 1; i < fizzBuzz.length; i++)
+        for (int i = 1; i <= fizzBuzz.length; i++)
         {
             int index = i;
-            if(index > 1 && index%3==0 && index%5 != 0)
+            if(index >= 1 && index%3==0 && index%5 != 0)
             {
-                fizzBuzz[i] = "Fizz";
+                fizzBuzz[i-1] = "Fizz";
                 //The continues are used as a way to be sure that once a number was found to be fizz or buzz or both
                 //That it wouldnt have to go through the rest of the loop
                 continue;
             }
-            else if(index > 1 && index%3!=0 && index%5 == 0)
+            else if(index >= 1 && index%3!=0 && index%5 == 0)
             {
-                fizzBuzz[i] = "Buzz";
+                fizzBuzz[i-1] = "Buzz";
                 continue;
             }
-            else if(index > 1 && index%3==0 && index%5 == 0)
+            else if(index >= 1 && index%3==0 && index%5 == 0)
             {
-                fizzBuzz[i] = "Fizz-Buzz";
+                fizzBuzz[i-1] = "Fizz-Buzz";
                 continue;
             }
             else
             {
-                fizzBuzz[i] = i;
+                fizzBuzz[i-1] = i;
             }
         }
         return fizzBuzz;
@@ -53,14 +53,15 @@ public class FizzBuzzP3 {
     public static void main(String args[])
     {
         boolean TF = true;
-        int n = 0;
+        int n;
+        int temp;
         while (TF)
         {
             Scanner scan = new Scanner(System.in);
 
             System.out.println("Enter the maximum number for FizzBuzz or 'stop' to end program.");
             String str = scan.nextLine();
-            if(str.charAt(0) >= 57 || str.charAt(0) <= 48)
+            if(Objects.equals(str, "stop") || )
             {
                 TF = false;
                 break;
