@@ -61,7 +61,7 @@ public class FizzBuzzP3 {
 
             System.out.println("Enter the maximum number for FizzBuzz or 'stop' to end program.");
             String str = scan.nextLine();
-            if(Objects.equals(str, "stop") || )
+            if(Objects.equals(str, "stop"))
             {
                 TF = false;
                 break;
