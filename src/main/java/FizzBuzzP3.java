@@ -53,21 +53,29 @@ public class FizzBuzzP3 {
     public static void main(String args[])
     {
         boolean TF = true;
-        int n;
-        int temp;
+        //This if and nested for loops will handel command line arguments if there are any
+        if (args.length > 1){
+            for(int i = 1; i < args.length; i++){
+                //because the fizzbuzz method returns a array, I want to put that array into a variable and display it
+                Object temp[] = FizzBuzz(Integer.parseInt(args[i]));
+                for(int p = 0; p< temp.length; p++){
+                    System.out.println(temp[p]);
+                }
+            }
+
+        }
         while (TF)
         {
             Scanner scan = new Scanner(System.in);
 
-            System.out.println("Enter the maximum number for FizzBuzz or 'stop' to end program.");
-            String str = scan.nextLine();
-            if(Objects.equals(str, "stop"))
+            System.out.println("Enter the maximum number for FizzBuzz or '-9999' to end program.");
+            int str = scan.nextInt();
+            if(str == -9999)
             {
                 TF = false;
                 break;
-            }else
-                n= Integer.parseInt(str);
-            Object tempArray[] = FizzBuzzP3.FizzBuzz(n);
+            }
+            Object tempArray[] = FizzBuzzP3.FizzBuzz(str);
             for(int i = 0; i < tempArray.length; i++)
             {
                 System.out.println(tempArray[i]);

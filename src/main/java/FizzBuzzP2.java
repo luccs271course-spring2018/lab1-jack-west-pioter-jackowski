@@ -44,21 +44,25 @@ public class FizzBuzzP2 {
     public static void main(String args[])
     {
         boolean TF = true;
-        int n = 0;
+        if (args.length > 1){
+            for(int i = 1; i < args.length; i++){
+                FizzBuzz(Integer.parseInt(args[i]));
+            }
+
+        }
         while (TF)
         {
             Scanner scan = new Scanner(System.in);
 
-            System.out.println("Enter the maximum number for FizzBuzz or 'stop' to end program.");
-            String str = scan.nextLine();
+            System.out.println("Enter the maximum number for FizzBuzz or '-9999' to end program.");
+            int n = scan.nextInt();
             //This if Statement checks the ascii decimal value to see if it is a number or a letter.
             //If it is any letter the program will end
-            if(str.charAt(0) >= 57 || str.charAt(0) <= 48)
+            if(n == -9999)
             {
                 TF = false;
                 break;
-            }else
-                n= Integer.parseInt(str);
+            }
             FizzBuzz(n);
 
         }

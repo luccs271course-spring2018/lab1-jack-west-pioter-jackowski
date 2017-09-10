@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,11 +13,13 @@ public class FizzBuzzP4 {
         if(n< 1)
         {
             System.out.println("Invalid number");
+            List<Object> blank = Arrays.asList("Invalid number");
+            return blank;
         }
 
-        for (int i = 1; i < n+1; i++)
+        for (int i = 0; i < n; i++)
         {
-            int index = i;
+            int index = i+1;
             if(index > 1 && index%3==0 && index%5 != 0)
             {
                 fizzBuzz.add(i,"Fizz");
@@ -36,7 +39,7 @@ public class FizzBuzzP4 {
             }
             else
             {
-                fizzBuzz.add(i,i);
+                fizzBuzz.add(i,index);
             }
         }
         return fizzBuzz;
@@ -45,21 +48,32 @@ public class FizzBuzzP4 {
 
     public static void main(String args[])
     {
+        // This boolean variable is to make sure the while loop is running for user input
         boolean TF = true;
-        int n = 0;
+        //This if and nested for loops will handel command line arguments if there are any
+        if (args.length > 1){
+            for(int i = 1; i < args.length; i++){
+                //because the fizzbuzz method returns a array, I want to put that array into a variable and display it
+                List<Object> temp = FizzBuzz(Integer.parseInt(args[i]));
+                for(int p = 0; p< temp.size(); p++){
+                    System.out.println(temp.get(p));
+                }
+            }
+
+        }
         while (TF)
         {
             Scanner scan = new Scanner(System.in);
 
-            System.out.println("Enter the maximum number for FizzBuzz or 'stop' to end program.");
-            String str = scan.nextLine();
-            if(str.charAt(0) >= 57 || str.charAt(0) <= 48 )
+            System.out.println("Enter the maximum number for FizzBuzz or '-9999' to end program.");
+            int str = scan.nextInt();
+            if(str == -9999 )
             {
                 TF = false;
                 break;
-            }else
-                n= Integer.parseInt(str);
-            List<Object> tempList = FizzBuzzP4.FizzBuzz(n);
+            }
+
+            List<Object> tempList = FizzBuzzP4.FizzBuzz(str);
             for(int i = 0; i < tempList.size(); i++)
             {
                 System.out.println(tempList.get(i));
