@@ -13,4 +13,9 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
-mainClassName = "FizzBuzzP3"
+run{
+    standardInput = System.in
+}
+//mainClassName = "FizzBuzzP3"
+//mainClassName = "FizzBuzzP2"
+mainClassName = "FizzBuzzP4"

@@ -66,10 +66,14 @@ public class FizzBuzzP3 {
         }
         while (TF)
         {
+            int str;
             Scanner scan = new Scanner(System.in);
-
             System.out.println("Enter the maximum number for FizzBuzz or '-9999' to end program.");
-            int str = scan.nextInt();
+            //str = scan.nextInt();
+            if(scan.hasNextInt() )
+                str = scan.nextInt(); // if there is another number
+            else
+                str = -9999;
             if(str == -9999)
             {
                 TF = false;
