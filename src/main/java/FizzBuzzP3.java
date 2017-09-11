@@ -66,20 +66,26 @@ public class FizzBuzzP3 {
         }
         while (TF)
         {
-            int str;
             Scanner scan = new Scanner(System.in);
-            System.out.println("Enter the maximum number for FizzBuzz or '-9999' to end program.");
-            //str = scan.nextInt();
-            if(scan.hasNextInt() )
-                str = scan.nextInt(); // if there is another number
-            else
-                str = -9999;
-            if(str == -9999)
-            {
+            System.out.println("Enter the maximum number for FizzBuzz or 'stop' to end program.");
+            String str = scan.nextLine();
+            if (str.equals("stop")) {
                 TF = false;
                 break;
             }
-            Object tempArray[] = FizzBuzzP3.FizzBuzz(str);
+            else {
+                try {
+                    int n = Integer.parseInt(str);
+                    Object tempArray[] = FizzBuzzP3.FizzBuzz(n);
+                    for (int i = 0; i < tempArray.length; i++);
+                }
+                catch (NumberFormatException ex) {
+                    System.out.println("This is not a valid character please input a number.");
+                continue;
+                }
+            }
+            int n = Integer.parseInt(str);
+            Object tempArray[] = FizzBuzzP3.FizzBuzz(n);
             for(int i = 0; i < tempArray.length; i++)
             {
                 System.out.println(tempArray[i]);
